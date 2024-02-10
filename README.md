@@ -14,7 +14,7 @@ Aplikasi web Kalkulator Konversi Suhu adalah sebuah alat sederhana yang memungki
 - JavaScript
 
 ## Cara Menggunakan
-1. Buka tautan [(Under Construction)](https://revou-fundamental-course.github.io/5-feb-24-AdonNeet/) pada tab baru.
+1. Buka tautan [(Under Construction)](https://revou-fundamental-course.github.io/5-feb-24-AdonNeet/index.html) pada tab baru.
 2. Masukkan nilai suhu dalam kotak input.
 3. Pilih unit suhu yang ingin Anda konversi (Celcius, Kelvin, atau Fahrenheit), kemudian klik konversi.
 4. Tunggu sebentar dan hasil konversi akan muncul di bawah.

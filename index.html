@@ -1,108 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Konversi Suhu</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Konversi Suhu</title>
+  <meta name="color-scheme" content="light dark">
+  <link rel="stylesheet" href="./css/style.css">
+  <style>
+        body {
+          box-sizing: border-box;
+          min-width: 200px;
+          max-width: 980px;
+          margin: 0 auto;
+          padding: 45px;
+        }
+
+        @media (prefers-color-scheme: dark) {
+          body {
+            background-color: #0d1117;
+          }
+        }
+  </style>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>  <!-- LaTeX for math thing   -->
 </head>
+
 <body>
+  <article class="markdown-body">
+  <h1><a id="user-content-h1" class="anchor" href="#h1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Kalkulator Konversi Suhu</h1>
 
-<h2>Konversi Suhu</h2>
+  <label for="jenis-konversi">Pilih Jenis Konversi:</label>
+  <select id="jenis-konversi">
+    <option value="celsius-to-fahrenheit">Celsius ke Fahrenheit</option>
+    <option value="fahrenheit-to-celsius">Fahrenheit ke Celsius</option>
+    <option value="celsius-to-kelvin">Celsius ke Kelvin</option>
+    <option value="kelvin-to-celsius">Kelvin ke Celsius</option>
+    <option value="fahrenheit-to-kelvin">Fahrenheit ke Kelvin</option>
+    <option value="kelvin-to-fahrenheit">Kelvin ke Fahrenheit</option>
+  </select>
+  <br> 
+  <label for="input-suhu">Input Suhu:</label>
+  <input type="text" id="input-suhu">
+  <br>
+  <label for="output-suhu">Hasil Konversi:</label>
+  <input type="text" id="output-suhu" readonly>
+  <br>
+  <label for="rumus">Rumus Konversi:</label>
+  <textarea id="rumus" rows="4" readonly></textarea>
 
-<label for="jenis-konversi">Pilih Jenis Konversi:</label>
-<select id="jenis-konversi">
-  <option value="celsius-to-fahrenheit">Celsius ke Fahrenheit</option>
-  <option value="fahrenheit-to-celsius">Fahrenheit ke Celsius</option>
-  <option value="celsius-to-kelvin">Celsius ke Kelvin</option>
-  <option value="kelvin-to-celsius">Kelvin ke Celsius</option>
-  <option value="fahrenheit-to-kelvin">Fahrenheit ke Kelvin</option>
-  <option value="kelvin-to-fahrenheit">Kelvin ke Fahrenheit</option>
-</select>
-<br> 
-<label for="input-suhu">Input Suhu:</label>
-<input type="text" id="input-suhu">
-<br>
-<label for="output-suhu">Hasil Konversi:</label>
-<input type="text" id="output-suhu" readonly>
-<br>
-<label for="rumus">Rumus Konversi:</label>
-<textarea id="rumus" rows="4" readonly></textarea>
+  <p>This is an example of inline math: \( E=mc^2 \).</p>
 
-<script>
-const jenisKonversi = document.getElementById('jenis-konversi');
-const inputSuhu = document.getElementById('input-suhu');
-const outputSuhu = document.getElementById('output-suhu');
-const rumus = document.getElementById('rumus');
+  <p>And here's an example of display math:</p>
 
-jenisKonversi.addEventListener('change', function() {
-  hitungKonversi();
-  tampilkanRumus();
-});
+  \[ \int_{-\infty}^{\infty} e^{-x^2} \, dx = \sqrt{\pi} \]
 
-inputSuhu.addEventListener('input', function() {
-  hitungKonversi();
-});
-
-function hitungKonversi() {
-  const selectedOption = jenisKonversi.value;
-  const suhu = parseFloat(inputSuhu.value);
-
-  let hasil;
-  switch(selectedOption) {
-    case 'celsius-to-fahrenheit':
-      hasil = suhu * 9/5 + 32;
-      break;
-    case 'fahrenheit-to-celsius':
-      hasil = (suhu - 32) * 5/9;
-      break;
-    case 'celsius-to-kelvin':
-      hasil = suhu + 273.15;
-      break;
-    case 'kelvin-to-celsius':
-      hasil = suhu - 273.15;
-      break;
-    case 'fahrenheit-to-kelvin':
-      hasil = (suhu - 32) * 5/9 + 273.15;
-      break;
-    case 'kelvin-to-fahrenheit':
-      hasil = (suhu - 273.15) * 9/5 + 32;
-      break;
-  }
-
-  outputSuhu.value = hasil.toFixed(2);
-}
-
-function tampilkanRumus() {
-  const selectedOption = jenisKonversi.value;
-  let rumusText;
-
-  switch(selectedOption) {
-    case 'celsius-to-fahrenheit':
-      rumusText = "Fahrenheit = Celsius × 9/5 + 32";
-      break;
-    case 'fahrenheit-to-celsius':
-      rumusText = "Celsius = (Fahrenheit - 32) × 5/9";
-      break;
-    case 'celsius-to-kelvin':
-      rumusText = "Kelvin = Celsius + 273.15";
-      break;
-    case 'kelvin-to-celsius':
-      rumusText = "Celsius = Kelvin - 273.15";
-      break;
-    case 'fahrenheit-to-kelvin':
-      rumusText = "Kelvin = (Fahrenheit - 32) × 5/9 + 273.15";
-      break;
-    case 'kelvin-to-fahrenheit':
-      rumusText = "Fahrenheit = (Kelvin - 273.15) × 9/5 + 32";
-      break;
-  }
-
-  rumus.value = rumusText;
-}
-
-hitungKonversi();
-tampilkanRumus();
-</script>
-
+  <!-- untuk membuat script memproses secara terus menerus ketika ada inputan -->
+  <script src="./js/script.js"></script>
+  
+  </article>
 </body>
 </html>

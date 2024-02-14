@@ -28,7 +28,7 @@
 <body>
   <article class="markdown-body">
   <h1><a id="user-content-h1" class="anchor" href="#kalkulator-konversi-suhu" aria-hidden="true"><span class="octicon octicon-link"></span></a>Kalkulator Konversi Suhu</h1>
-  <p>Masukkan suhu derajat ke kotak dibawah, lalu pilih jenis konversinya untuk mendapatkan hasil konversi sesuai yang di inginkan. Hasil akan muncul secara otomatis setelah memasukkan angka pada inputan.</p>
+  <p>Masukkan angka derajat suhu ke kotak dibawah, lalu pilih jenis konversinya untuk mendapatkan hasil konversi sesuai yang di inginkan.</p>
   
   <div class="container">
     <div class="row">
@@ -48,6 +48,13 @@
           <option value="fahrenheit-to-kelvin">Fahrenheit ke Kelvin</option>
           <option value="kelvin-to-fahrenheit">Kelvin ke Fahrenheit</option>
         </select>
+        <button onclick="reverseKonversi()">Reverse</button>
+        <br><br>
+        <blockquote>
+          <p>
+            Hasil akan muncul secara otomatis setelah memasukkan angka pada inputan.
+          </p>
+        </blockquote>
       </div>
     </div>
     <div class="row">
@@ -57,12 +64,15 @@
         <textarea type="text" id="output-suhu" readonly></textarea>
       </div>
       <div class="box">
-        <label for="rumus">Cara kalkulasi:</label>
+        <label for="kalkulasi">Cara kalkulasi:</label>
         <br>
-        <textarea id="rumus" readonly></textarea>
+        <textarea id="kalkulasi" readonly></textarea>
       </div>
     </div>   
   </div>
+
+  <h2><a id="user-content-h1" class="anchor" href="#cara-konversi" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cara Konversi</h2>
+  
 
   
 

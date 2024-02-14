@@ -27,36 +27,51 @@
 
 <body>
   <article class="markdown-body">
-  <h1><a id="user-content-h1" class="anchor" href="#h1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Kalkulator Konversi Suhu</h1>
+  <h1><a id="user-content-h1" class="anchor" href="#kalkulator-konversi-suhu" aria-hidden="true"><span class="octicon octicon-link"></span></a>Kalkulator Konversi Suhu</h1>
+  <p>Masukkan suhu derajat ke kotak dibawah, lalu pilih jenis konversinya untuk mendapatkan hasil konversi sesuai yang di inginkan. Hasil akan muncul secara otomatis setelah memasukkan angka pada inputan.</p>
+  
+  <div class="container">
+    <div class="row">
+      <div class="box">
+        <label for="input-suhu">Input Suhu:</label>
+        <br>
+        <textarea type="text" id="input-suhu"></textarea>
+      </div>
+      <div class="box">
+        <label for="jenis-konversi">Pilih Jenis Konversi:</label>
+        <br>
+        <select id="jenis-konversi">
+          <option value="celsius-to-fahrenheit">Celsius ke Fahrenheit</option>
+          <option value="fahrenheit-to-celsius">Fahrenheit ke Celsius</option>
+          <option value="celsius-to-kelvin">Celsius ke Kelvin</option>
+          <option value="kelvin-to-celsius">Kelvin ke Celsius</option>
+          <option value="fahrenheit-to-kelvin">Fahrenheit ke Kelvin</option>
+          <option value="kelvin-to-fahrenheit">Kelvin ke Fahrenheit</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="box">
+        <label for="output-suhu">Hasil Konversi:</label>
+        <br>
+        <textarea type="text" id="output-suhu" readonly></textarea>
+      </div>
+      <div class="box">
+        <label for="rumus">Cara kalkulasi:</label>
+        <br>
+        <textarea id="rumus" readonly></textarea>
+      </div>
+    </div>   
+  </div>
 
-  <label for="jenis-konversi">Pilih Jenis Konversi:</label>
-  <select id="jenis-konversi">
-    <option value="celsius-to-fahrenheit">Celsius ke Fahrenheit</option>
-    <option value="fahrenheit-to-celsius">Fahrenheit ke Celsius</option>
-    <option value="celsius-to-kelvin">Celsius ke Kelvin</option>
-    <option value="kelvin-to-celsius">Kelvin ke Celsius</option>
-    <option value="fahrenheit-to-kelvin">Fahrenheit ke Kelvin</option>
-    <option value="kelvin-to-fahrenheit">Kelvin ke Fahrenheit</option>
-  </select>
-  <br> 
-  <label for="input-suhu">Input Suhu:</label>
-  <input type="text" id="input-suhu">
-  <br>
-  <label for="output-suhu">Hasil Konversi:</label>
-  <input type="text" id="output-suhu" readonly>
-  <br>
-  <label for="rumus">Rumus Konversi:</label>
-  <textarea id="rumus" rows="4" readonly></textarea>
+  
 
-  <p>This is an example of inline math: \( E=mc^2 \).</p>
-
-  <p>And here's an example of display math:</p>
-
-  \[ \int_{-\infty}^{\infty} e^{-x^2} \, dx = \sqrt{\pi} \]
+  <div class="container">
+    
+  </div>  
 
   <!-- untuk membuat script memproses secara terus menerus ketika ada inputan -->
   <script src="./js/script.js"></script>
-  
   </article>
 </body>
 </html>

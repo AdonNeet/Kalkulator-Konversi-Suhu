@@ -10,6 +10,7 @@ jenisKonversi.addEventListener('change', function() {
 
 inputSuhu.addEventListener('input', function() {
     hitungKonversi();
+    tampilkanRumus();
 });
 
 function hitungKonversi() {
@@ -47,11 +48,12 @@ function hitungKonversi() {
 
   function tampilkanRumus() {
     const selectedOption = jenisKonversi.value;
+    const suhu = inputSuhu.value;
     let rumusText;
 
     switch(selectedOption) {
       case 'celsius-to-fahrenheit':
-        rumusText = "\( E=mc^2 \)";
+        rumusText = suhu +" * 9/5 + 32 = " + outputSuhu.value;
         break;
       case 'fahrenheit-to-celsius':
         rumusText = "Celsius = (Fahrenheit - 32) × 5/9";
@@ -70,7 +72,12 @@ function hitungKonversi() {
         break;
     }
 
-    rumus.value = rumusText;
+    if (suhu == "") {
+      rumus.value = "Tidak ada kalkulasi yang terjadi";
+    } else {
+      rumus.value = rumusText;
+    }
+    
 }
 
 hitungKonversi();

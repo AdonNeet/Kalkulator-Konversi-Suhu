@@ -1077,3 +1077,28 @@
 .markdown-body .markdown-alert.markdown-alert-caution .markdown-alert-title {
     color: var(--color-danger-fg)
 }
+
+.container {
+    width: 100%; /* Lebar container */
+    height: auto; /* Tinggi container */
+    margin: 0 auto; /* Memusatkan container */
+    padding: 0.125em; /* Padding untuk ruang di sekitar textarea */
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.box {
+    width: 65%; 
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+textarea {
+    width: 30em; 
+    height: 6em; 
+    resize: none;
+}

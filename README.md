@@ -15,7 +15,7 @@ Aplikasi web Kalkulator Konversi Suhu adalah sebuah alat sederhana yang memungki
 - JavaScript
 
 ## Cara Menggunakan
-1. Buka tautan [https://revou-fundamental-course.github.io/5-feb-24-AdonNeet/](https://revou-fundamental-course.github.io/5-feb-24-AdonNeet/) pada tab baru.
+1. Buka tautan [https://adonneet.github.io/Kalkulator-Konversi-Suhu/](https://adonneet.github.io/Kalkulator-Konversi-Suhu/) pada tab baru.
 2. Masukkan nilai suhu dalam kotak input.
 3. Pilih unit suhu yang ingin Anda konversi, kemudian klik konversi.
 4. Tunggu sebentar dan hasil konversi akan muncul di bawah.
@@ -31,5 +31,5 @@ Dengan menggunakan aplikasi ini, semoga Anda dapat dengan mudah mengonversi suhu
 
 <div align="right">
     AdonNeet  <br>
-    - 2024 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    2024 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </div>

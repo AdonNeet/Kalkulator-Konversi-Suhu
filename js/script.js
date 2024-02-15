@@ -4,7 +4,6 @@ const outputSuhu = document.getElementById('output-suhu');
 const kalkulasi = document.getElementById('kalkulasi');
 const descRumus = document.getElementById('descRumus');
 const rumus = document.getElementById('rumus');
-
 const textarea = document.getElementById('input-suhu');
 
 textarea.addEventListener('keydown', function(event) {
@@ -33,9 +32,9 @@ textarea.addEventListener('keydown', function(event) {
       keyCode !== 37 && // panah kiri
       keyCode !== 39 && // panah kanan
       keyCode !== 46 && // delete
-      keyCode !== 9
+      keyCode !== 9     // tab
       ) {
-    // Mencegah default action (penambahan spasi atau enter)
+    // Mencegah tindakan selain memasukkan angka
     event.preventDefault();
   }
 });
@@ -199,7 +198,7 @@ function tampilkanRumus() {
       break;
   }
 
-  katex.render(desc, descRumus);
+  katex.render(desc, descRumus);  // untuk merender LaTeX agar tampil pada html
   katex.render(rumusText, rumus);
 }
 

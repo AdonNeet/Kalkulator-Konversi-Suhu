@@ -1,3 +1,10 @@
+/*  
+ *  CSS Markdown github flavored (dark edition) 
+ *
+ *  Source:
+ *  https://github.com/sindresorhus/github-markdown-css
+ *
+*/
 @media(prefers-color-scheme: dark) {
     .markdown-body,[data-theme=dark] {
         color-scheme:dark;
@@ -1087,27 +1094,27 @@
     padding: 0.125em; /* Padding untuk ruang di sekitar textarea */
 }
 
-.row {
+.row {  /* Untuk membuat 2 kolom pada baris */
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
 }
 
 .box {
-    width: 65%; 
+    width: 65%;     /* Aturan masing-masing kolom pada baris */
     padding: 10px;
     box-sizing: border-box;
 }
 
-textarea {
-    width: 27em; 
+textarea {  
+    width: 27em;    /* Mengatur semua ukuran dan font textarea */
     height: 7.5em; 
     resize: none;
     font-size: 15px;
 }
 
 button {
-    background-color: #363636;
+    background-color: #363636;  /* Memberi warna hitam pada tombol */
     color: white;
     font-size: 15px;
 }
@@ -1115,5 +1122,3 @@ button {
 select {
     font-size: 16px;
 }
-
-

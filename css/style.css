@@ -1078,6 +1078,8 @@
     color: var(--color-danger-fg)
 }
 
+/* Styling tambahan */
+
 .container {
     width: 100%; /* Lebar container */
     height: auto; /* Tinggi container */
@@ -1098,8 +1100,15 @@
 }
 
 textarea {
-    width: 28em; 
+    width: 27em; 
     height: 7.5em; 
     resize: none;
-    font-size: 14px;
+    font-size: 15px;
 }
+
+button {
+    background-color: #363636;
+    color: white;
+}
+
+

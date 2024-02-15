@@ -2,6 +2,7 @@ const jenisKonversi = document.getElementById('jenis-konversi');
 const inputSuhu = document.getElementById('input-suhu');
 const outputSuhu = document.getElementById('output-suhu');
 const kalkulasi = document.getElementById('kalkulasi');
+const descRumus = document.getElementById('descRumus');
 const rumus = document.getElementById('rumus');
 
 const textarea = document.getElementById('input-suhu');
@@ -16,10 +17,18 @@ textarea.addEventListener('keydown', function(event) {
     return;
   }
 
-  // Cek jika tombol yang ditekan adalah spasi atau enter
-  if ((keyCode !== 32 || keyCode !== 13) &&
+  if(keyCode === 13) { // ketika enter, maka tampilkan hasilnya
+    event.preventDefault();
+    hitungKonversi();   
+    tampilkanCalc();
+    tampilkanRumus();
+  }
+
+  // Cek jika tombol yang ditekan adalah spasi]
+  if (keyCode !== 32 &&
       !(keyCode >= 48 && keyCode <= 57) &&  // cek untuk angka di atas keyboard
       !(keyCode >= 96 && keyCode <= 105) && // cek untuk angka di keypad
+      !(keyCode === 190) && // cek titik sebagai koma
       keyCode !== 8 &&  // backspace
       keyCode !== 37 && // panah kiri
       keyCode !== 39 && // panah kanan
@@ -31,15 +40,55 @@ textarea.addEventListener('keydown', function(event) {
   }
 });
 
-jenisKonversi.addEventListener('change', function() {
-    hitungKonversi();
-    tampilkanCalc();
-});
+// jenisKonversi.addEventListener('change', function() {
+//   hitungKonversi();
+//   tampilkanCalc();
+//   tampilkanRumus();
+// });
 
-inputSuhu.addEventListener('input', function() {
-    hitungKonversi();
-    tampilkanCalc();
-});
+// inputSuhu.addEventListener('input', function() {
+//   hitungKonversi();
+//   tampilkanCalc();
+//   tampilkanRumus();
+// });
+
+function konversi() { // jika ingin input otomatis di kalkulasi uncomment 2 event listener diatas
+  hitungKonversi();   // kemudian comment fungsi ini
+  tampilkanCalc();
+  tampilkanRumus();
+}
+
+// Fungsi untuk membalikkan jenis konversi
+function reverseKonversi() {
+  const selectedOption = jenisKonversi.value;
+  let reversedOption;
+
+  switch(selectedOption) {
+    case 'celsius-to-fahrenheit':
+      reversedOption = 'fahrenheit-to-celsius';
+      break;
+    case 'fahrenheit-to-celsius':
+      reversedOption = 'celsius-to-fahrenheit';
+      break;
+    case 'celsius-to-kelvin':
+      reversedOption = 'kelvin-to-celsius';
+      break;
+    case 'kelvin-to-celsius':
+      reversedOption = 'celsius-to-kelvin';
+      break;
+    case 'fahrenheit-to-kelvin':
+      reversedOption = 'kelvin-to-fahrenheit';
+      break;
+    case 'kelvin-to-fahrenheit':
+      reversedOption = 'fahrenheit-to-kelvin';
+      break;
+  }
+
+  jenisKonversi.value = reversedOption;
+  // hitungKonversi();  // uncomment jika ingin input otomatis di kalkulasi
+  // tampilkanCalc();   
+  // tampilkanRumus();
+}
 
 function hitungKonversi() {
     const selectedOption = jenisKonversi.value;
@@ -81,22 +130,22 @@ function hitungKonversi() {
 
     switch(selectedOption) {
       case 'celsius-to-fahrenheit':
-        calcText = suhu +" * 9/5 + 32 = " + outputSuhu.value;
+        calcText = suhu +" * (9/5) + 32 = " + outputSuhu.value;
         break;
       case 'fahrenheit-to-celsius':
-        calcText = "Celsius = (Fahrenheit - 32) × 5/9";
+        calcText = "("+ suhu +" - 32) * (5/9) = " + outputSuhu.value;
         break;
       case 'celsius-to-kelvin':
-        calcText = "Kelvin = Celsius + 273.15";
+        calcText = suhu + " + 273.15 = " + outputSuhu.value;
         break;
       case 'kelvin-to-celsius':
-        calcText = "Celsius = Kelvin - 273.15";
+        calcText = suhu + " - 273.15 = " + outputSuhu.value;
         break;
       case 'fahrenheit-to-kelvin':
-        calcText = "Kelvin = (Fahrenheit - 32) × 5/9 + 273.15";
+        calcText = "(" + suhu + " - 32) * (5/9) + 273.15 = " + outputSuhu.value;
         break;
       case 'kelvin-to-fahrenheit':
-        calcText = "Fahrenheit = (Kelvin - 273.15) × 9/5 + 32";
+        calcText = "(" + suhu + " - 273.15) * (9/5) + 32 = " + outputSuhu.value;
         break;
     }
 
@@ -110,31 +159,40 @@ function hitungKonversi() {
 
 function tampilkanRumus() {
   const selectedOption = jenisKonversi.value;
-  let rumusText;
+  let desc, rumusText;
 
   switch(selectedOption) {
     case 'celsius-to-fahrenheit':
-      rumusText = suhu +" * 9/5 + 32 = " + outputSuhu.value;
+      desc = "\\text{Suhu } S \\text{ dalam derajat Fahrenheit (\\degree F) sama dengan suhu }  S \\text{ dalam derajat } \\\\ \\text{Celcius (\\degree C) kali } \\frac{9}{5} \\text{ tambah } 32.";
+      rumusText = "\\large S_{(\\degree F)} = (S_{(\\degree C)} \\times \\frac{9}{5}) + 32 \\\\ \\text{ } \\\\ \\text{atau} \\\\ \\text{ } \\\\ S_{(\\degree F)} = (S_{(\\degree C)} \\times 1.8) + 32";
       break;
     case 'fahrenheit-to-celsius':
-      rumusText = "Celsius = (Fahrenheit - 32) × 5/9";
+      desc = "\\text{Suhu } S \\text{ dalam derajat Celcius (\\degree C) sama dengan suhu }  S \\text{ dalam derajat } \\\\ \\text{Fahrenheit (\\degree F) dikurangi } 32 \\text{ kemudian kali } \\frac{5}{9} .";
+      rumusText = "\\large S_{(\\degree C)} = (S_{(\\degree F)} - 32 ) \\times \\frac{5}{9}";
       break;
     case 'celsius-to-kelvin':
-      rumusText = "Kelvin = Celsius + 273.15";
+      desc = "tes";
+      rumusText = "tes2";
       break;
     case 'kelvin-to-celsius':
-      rumusText = "Celsius = Kelvin - 273.15";
+      desc = "tes";
+      rumusText = "tes3";
       break;
     case 'fahrenheit-to-kelvin':
-      rumusText = "Kelvin = (Fahrenheit - 32) × 5/9 + 273.15";
+      desc = "tes";
+      rumusText = "tes4";
       break;
     case 'kelvin-to-fahrenheit':
-      rumusText = "Fahrenheit = (Kelvin - 273.15) × 9/5 + 32";
+      desc = "tes";
+      rumusText = "tes5";
       break;
   }
-
-  rumus.value = rumusText;
+  katex.render(" ", descRumus);
+  katex.render(" ", rumus);
+  katex.render(desc, descRumus);
+  katex.render(rumusText, rumus);
 }
 
 hitungKonversi();
 tampilkanCalc();
+tampilkanRumus();

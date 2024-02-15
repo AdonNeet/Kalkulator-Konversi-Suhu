@@ -21,6 +21,8 @@
           }
         }
   </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.js"></script>
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>  <!-- LaTeX for math thing   -->
 </head>
@@ -28,7 +30,7 @@
 <body>
   <article class="markdown-body">
   <h1><a id="user-content-h1" class="anchor" href="#kalkulator-konversi-suhu" aria-hidden="true"><span class="octicon octicon-link"></span></a>Kalkulator Konversi Suhu</h1>
-  <p>Masukkan angka derajat suhu ke kotak dibawah, lalu pilih jenis konversinya untuk mendapatkan hasil konversi sesuai yang di inginkan.</p>
+  <p style="font-size: 17px;">Masukkan angka derajat suhu ke kotak dibawah, lalu pilih jenis konversinya untuk mendapatkan hasil konversi sesuai yang di inginkan.</p>
   
   <div class="container">
     <div class="row">
@@ -49,10 +51,11 @@
           <option value="kelvin-to-fahrenheit">Kelvin ke Fahrenheit</option>
         </select>
         <button onclick="reverseKonversi()">Reverse</button>
+        <button onclick="konversi()">Konversi</button>
         <br><br>
         <blockquote>
           <p>
-            Hasil akan muncul secara otomatis setelah memasukkan angka pada inputan.
+            Hasil akan muncul setelah memasukkan angka pada inputan dan menekan tombol konversi atau "enter".
           </p>
         </blockquote>
       </div>
@@ -72,13 +75,11 @@
   </div>
 
   <h2><a id="user-content-h1" class="anchor" href="#cara-konversi" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cara Konversi</h2>
-  
+  <div id="descRumus"></div>
+  <br>
+  <div id="rumus"></div>
 
-  
-
-  <div class="container">
-    
-  </div>  
+   
 
   <!-- untuk membuat script memproses secara terus menerus ketika ada inputan -->
   <script src="./js/script.js"></script>

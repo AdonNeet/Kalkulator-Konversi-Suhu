@@ -1109,6 +1109,11 @@ textarea {
 button {
     background-color: #363636;
     color: white;
+    font-size: 15px;
+}
+
+select {
+    font-size: 16px;
 }
 
 

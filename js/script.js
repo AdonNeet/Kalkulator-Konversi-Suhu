@@ -40,6 +40,17 @@ textarea.addEventListener('keydown', function(event) {
   }
 });
 
+document.body.addEventListener('keydown', function(event) { // ketika tidak di textarea
+  const keyCode = event.keyCode || event.which; 
+
+  if(keyCode === 13) { // ketika enter, maka tampilkan hasilnya
+    event.preventDefault();
+    hitungKonversi();   
+    tampilkanCalc();
+    tampilkanRumus();
+  }
+});
+
 // jenisKonversi.addEventListener('change', function() {
 //   hitungKonversi();
 //   tampilkanCalc();
@@ -85,9 +96,9 @@ function reverseKonversi() {
   }
 
   jenisKonversi.value = reversedOption;
-  // hitungKonversi();  // uncomment jika ingin input otomatis di kalkulasi
-  // tampilkanCalc();   
-  // tampilkanRumus();
+  hitungKonversi();  // uncomment jika ingin input otomatis di kalkulasi setelah di reverse
+  tampilkanCalc();   
+  tampilkanRumus();
 }
 
 function hitungKonversi() {
@@ -149,7 +160,7 @@ function hitungKonversi() {
         break;
     }
 
-    if (outputSuhu.value == "Input angka tidak terdeteksi") {
+    if (outputSuhu.value === "Input angka tidak terdeteksi") {
       kalkulasi.value = "Tidak ada kalkulasi yang terjadi";
     } else {
       kalkulasi.value = calcText;
@@ -163,36 +174,36 @@ function tampilkanRumus() {
 
   switch(selectedOption) {
     case 'celsius-to-fahrenheit':
-      desc = "\\text{Suhu } S \\text{ dalam derajat Fahrenheit (\\degree F) sama dengan suhu }  S \\text{ dalam derajat } \\\\ \\text{Celcius (\\degree C) kali } \\frac{9}{5} \\text{ tambah } 32.";
-      rumusText = "\\large S_{(\\degree F)} = (S_{(\\degree C)} \\times \\frac{9}{5}) + 32 \\\\ \\text{ } \\\\ \\text{atau} \\\\ \\text{ } \\\\ S_{(\\degree F)} = (S_{(\\degree C)} \\times 1.8) + 32";
+      desc = "\\text{Suhu } S \\text{ dalam derajat Fahrenheit (\\degree F) sama dengan suhu }  S \\text{ dalam derajat } \\\\ \\text{Celcius (\\degree C) kali } \\frac{9}{5} \\text{ ditambah } 32";
+      rumusText = "\\Large S_{(\\degree F)} = (S_{(\\degree C)} \\times \\frac{9}{5}) + 32 \\\\ \\text{ } \\\\ \\text{atau} \\\\ \\text{ } \\\\ S_{(\\degree F)} = (S_{(\\degree C)} \\times 1.8) + 32";
       break;
     case 'fahrenheit-to-celsius':
-      desc = "\\text{Suhu } S \\text{ dalam derajat Celcius (\\degree C) sama dengan suhu }  S \\text{ dalam derajat } \\\\ \\text{Fahrenheit (\\degree F) dikurangi } 32 \\text{ kemudian kali } \\frac{5}{9} .";
-      rumusText = "\\large S_{(\\degree C)} = (S_{(\\degree F)} - 32 ) \\times \\frac{5}{9}";
+      desc = "\\text{Suhu } S \\text{ dalam derajat Celcius (\\degree C) sama dengan suhu }  S \\text{ dalam derajat } \\\\ \\text{Fahrenheit (\\degree F) dikurangi } 32 \\text{ kemudian kali } \\frac{5}{9}";
+      rumusText = "\\Large S_{(\\degree C)} = (S_{(\\degree F)} - 32 ) \\times \\frac{5}{9}";
       break;
     case 'celsius-to-kelvin':
-      desc = "tes";
-      rumusText = "tes2";
+      desc = "\\text{Suhu } S \\text{ dalam derajat Kelvin (\\degree K) sama dengan suhu }  S \\text{ dalam derajat } \\\\ \\text{Celcius (\\degree C) ditambah } 273.15";
+      rumusText = "\\Large S_{(\\degree K)} = S_{(\\degree C)} + 273.15";
       break;
     case 'kelvin-to-celsius':
-      desc = "tes";
-      rumusText = "tes3";
+      desc = "\\text{Suhu } S \\text{ dalam derajat Celcius (\\degree C) sama dengan suhu }  S \\text{ dalam derajat } \\\\ \\text{Kelvin (\\degree K) dikurangi } 273.15";
+      rumusText = "\\Large S_{(\\degree C)} = S_{(\\degree K)} - 273.15";
       break;
     case 'fahrenheit-to-kelvin':
-      desc = "tes";
-      rumusText = "tes4";
+      desc = "\\text{Suhu } S \\text{ dalam derajat Kelvin (\\degree K) sama dengan suhu }  S \\text{ dalam derajat } \\\\ \\text{Fahrenheit (\\degree F) dikurangi } 32 \\text{ kali } \\frac{5}{9} \\text{ ditambah } 273.15";
+      rumusText = "\\Large S_{(\\degree K)} = (S_{(\\degree F)} - 32) \\times \\frac{5}{9} + 273.15";
       break;
     case 'kelvin-to-fahrenheit':
-      desc = "tes";
-      rumusText = "tes5";
+      desc = "\\text{Suhu } S \\text{ dalam derajat Fahrenheit (\\degree F) sama dengan suhu }  S \\text{ dalam derajat } \\\\ \\text{Kelvin (\\degree K) dikurangi } 273.15 \\text{ kali } \\frac{9}{5} \\text{ ditambah } 32";
+      rumusText = "\\Large S_{(\\degree K)} = (S_{(\\degree F)} - 273.15) \\times \\frac{9}{5} + 32 \\\\ \\text{ } \\\\ \\text{atau} \\\\ \\text{ } \\\\ S_{(\\degree K)} = (S_{(\\degree F)} - 273.15) \\times 1.8 + 32";
       break;
   }
-  katex.render(" ", descRumus);
-  katex.render(" ", rumus);
+
   katex.render(desc, descRumus);
   katex.render(rumusText, rumus);
 }
 
+// init script
 hitungKonversi();
 tampilkanCalc();
 tampilkanRumus();
